@@ -48,41 +48,43 @@ def display_intro():
 
         # EXPERT LEVEL
         elif choice == "C" or choice.lower() == "expert":
-             letter_list = "DRAGON", "MAMOTH", "PHOENIX", "MOUNTAIN", "FOREST", "ISLAND",
-             "RIVER", "OCEAN", "DESERT", "CANYON", "VALLEY", "GLACIER"
+             letter_list = ["DRAGON", "MAMOTH", "PHOENIX", "MOUNTAIN", "FOREST", "ISLAND",
+             "RIVER", "OCEAN", "DESERT", "CANYON", "VALLEY", "GLACIER"]
              count = 5
-             wait_time = 10     
+             wait_time = 10   
+
         else:
             print("Invalid choice. Please try again.")
             time.sleep(2)
+            continue
             
 
         # Generate random sequence
         
-            original_sequence = random.sample(letter_list, count)
-            clear_screen()
+        original_sequence = random.sample(letter_list, count)
+        clear_screen()
 
-            print("\nMemorize this sequence:")
-            print(" ".join(original_sequence))
+        print("\nMemorize this sequence:")
+        print(" ".join(original_sequence))
 
-            print(f"\nYou have {wait_time} seconds to memorize the sequence.")
-            time.sleep(wait_time)
-            clear_screen()
+        print(f"\nYou have {wait_time} seconds to memorize the sequence.")
+        time.sleep(wait_time)
+        clear_screen()
 
-            #make the shuffling
-            mixed_sequence = list(original_sequence)
-            random.shuffle(mixed_sequence)
+        #make the shuffling
+        mixed_sequence = list(original_sequence)
+        random.shuffle(mixed_sequence)
 
-            #Ask the user to input the sequence
-            user_input = input("Enter the correct sequence (with spaces): ").upper().split()
+        #Ask the user to input the sequence
+        user_input = input("Enter the correct sequence (with spaces): ").upper().split()
         
-            if user_input == original_sequence:
-                print(" You entered the correct sequence.")
-            else:
-                print("Oops! Wrong answer.")
-                print(f"\nThe correct sequence was: { ' '.join(original_sequence)}")
+        if user_input == original_sequence:
+            print(" You entered the correct sequence.")
+        else:
+            print("Oops! Wrong answer.")
+            print(f"\nThe correct sequence was: { ' '.join(original_sequence)}")
 
-            time.sleep(3)
+        time.sleep(3)
      
             
     #to test if it works
