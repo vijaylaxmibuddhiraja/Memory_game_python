@@ -7,6 +7,9 @@ def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def display_intro():
+
+    score = 0
+
     # Display the welcome message
     while True:   
         clear_screen()
@@ -15,7 +18,7 @@ def display_intro():
         print("=====================================")
 
         # Select levels
-        print("\nSelect a difficulty level:")
+        print("\nSelect a level:")
         print("A. Beginner")
         print("B. Intermediate")
         print("C. Expert")
@@ -23,10 +26,11 @@ def display_intro():
 
         choice = input("\nEnter your choice: ").upper()
 
-        # QUITTING the game 
+        # WHEN QUIT the game 
         if choice == "D" or choice == "":
              confirm = input("Are you sure you want to quit? (Y/N): ").upper()
              if confirm == "Y":
+                 print(f"\nYour final score is: {score}")
                  print("Thank you for playing! Goodbye!")
                  break
              else:
@@ -64,6 +68,9 @@ def display_intro():
         original_sequence = random.sample(letter_list, count)
         clear_screen()
 
+        print(f"\nYour score is: {score}")
+        print("===============================")
+
         print("\nMemorize this sequence:")
         print(" ".join(original_sequence))
 
@@ -79,11 +86,16 @@ def display_intro():
         user_input = input("Enter the correct sequence (with spaces): ").upper().split()
         
         if user_input == original_sequence:
-            print(" You entered the correct sequence.")
+            print("Yeyy!! You entered the correct sequence.")
+            score += 10
+            print(f"\nYou gained 10 points! Your total score is now: {score}")
         else:
             print("Oops! Wrong answer.")
             print(f"\nThe correct sequence was: { ' '.join(original_sequence)}")
 
+            score -= 5
+            print(f"\nYou lost 5 points. Your total score is now: {score}")
+            
         time.sleep(3)
      
             
