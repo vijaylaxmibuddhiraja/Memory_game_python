@@ -15,19 +15,48 @@ def display_intro():
 
     # Select levels
     print("\nSelect a difficulty level:")
-    print(" Beginner")
-    print(" Intermediate")
-    print(" Expert")
-    print(" Quit")
+    print("A. Beginner")
+    print("B. Intermediate")
+    print("C. Expert")
+    print("D. Quit")
 
     choice = input("\nEnter your choice: ")
 
-    if choice.lower == "quit":
-        print("Thanks for playing! Goodbye!")
-        return
+    if choice == "A" or choice.lower() == "beginner":
+        alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+        original_sequence = random.sample(alphabet, 5)
+
+        clear_screen()
+
+        print("\nMemorize this sequence:")
+        print(" ".join(original_sequence))
+
+
+        print("\nYou have 5 seconds to memorize the sequence.")
+        time.sleep(5)
+        clear_screen()
+
+        #make the shuffling
+        mixed_sequence = list(original_sequence)
+        random.shuffle(mixed_sequence)
+
+        #Ask the user to input the sequence
+        user_input = input("Enter the correct sequence (with spaces): ").upper().split()
+        if user_input == original_sequence:
+            print(" You entered the correct sequence.")
+        else:
+            print("Oops! Wrong answer.")
+            print(f"\nThe correct sequence was: { ' '.join(original_sequence)}")
+        #print("Time's up!Please enter the sequence.")
+
+
+    #if choice == "D" or choice.lower() == "quit":
+      #  print("Thanks for playing! Goodbye!")
+      #  return
     
     #to test if it works
-    print(f"You selected {choice} level.")  
+    #print(f"You selected {choice} level.")  
     
 if __name__ == "__main__":
     display_intro()
