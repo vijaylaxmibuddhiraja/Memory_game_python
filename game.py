@@ -65,42 +65,44 @@ def display_intro():
             continue
             
 
-        # Generate random sequence
+        # Start the game loop
         while True:    
+            # Generate random sequence
             original_sequence = random.sample(letter_list, count)
             clear_screen()
 
-            print(f"\nYour score is: {score}")
-            print("===============================")
+            #print(f"\nYour score is: {score}")
+            #print("===============================")
 
-            print("\nMemorize this sequence:")
+            print("\nThe original sequence is:")
             print(" ".join(original_sequence))
 
             print(f"\nYou have {wait_time} seconds to memorize the sequence.")
             # time.sleep(wait_time)
         
+            #countdown timer
             for i in range(wait_time, 0, -1):
                 print(f"Time remaining: {i} seconds", end='\r')
                 time.sleep(1)
 
             clear_screen()
+
             #make the shuffling
             mixed_sequence = list(original_sequence)
             random.shuffle(mixed_sequence)
 
             #Ask the user to input the sequence with option to quit
-            user_input = input("Enter the correct sequence (with spaces): ").upper().split()
-            print("or type 'MENU' to exit the game: ")
+            
+            print("\nEnter the correct sequence (with spaces): ")
+            
+            user_input = input("\nYour answer: ").upper()
 
-            user_input = input("Your answer: ").upper()
-
-            if user_input == "MENU":
-                print("Returning to main menu...")
-                time.sleep(2)
-                break
-
+            # Process user input
             user_input_list = user_input.split()
 
+            clear_screen()
+           
+            # Check if the user's input matches the original sequence
             if user_input_list == original_sequence:
                 print("Yeyy!! You entered the correct sequence.")
                 
@@ -112,14 +114,30 @@ def display_intro():
                 print("Oops! Wrong answer.")
                 print(f"\nThe correct sequence was: { ' '.join(original_sequence)}")
 
-                score -= 5
+                score -= 5 # Deduct 5 points
                 
                 print(f"\nYou lost 5 points. Your total score is now: {score}")
+
+            print("\n===================================")
+
+            # Ask to continue to the next round
+            print("\nWhat would you like to do next?")
+            print("1.Play next round")
+            print("2. Return to main menu")
+           
+            next_choice = input("\nEnter your choice: ")
             
-        print("\nGet ready for the next round!")
-        time.sleep(3)
-     
-            
+            if next_choice == "2":
+                print("Returning to main menu...")  #return to main menu
+                time.sleep(3)
+                break
+           
+            elif next_choice == "1":
+                print("\nGet ready for the next round!")
+                time.sleep(3)
+                continue
+          
+
     #to test if it works
     #print(f"You selected {choice} level.")  
     
