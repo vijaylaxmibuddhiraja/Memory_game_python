@@ -39,7 +39,7 @@ def display_intro():
             choice = input("\nEnter your choice: ").upper()
             
             # WHEN QUIT the game 
-            if choice == "D" or choice == "":
+            if choice == "D":
                 confirm = input("Are you sure you want to quit? (Y/N): ").upper()
              
                 if confirm == "Y":
