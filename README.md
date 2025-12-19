@@ -20,7 +20,7 @@ Ett konsolbaserat minnesspel byggt med Python där spelare testar sitt minne gen
 # Hur man kör spelet
  Steg 1. Klona Repository
  1. git clone https://github.com/vijaylaxmibuddhiraja/Memory_game_python.git
- 2. cd Memory_game_pyhton
+ 2. cd Memory_game_python
    
 Steg 2. Skapa virtuell miljö:
  1. python -m venv venv
